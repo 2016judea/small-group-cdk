@@ -1,14 +1,13 @@
-# Welcome to your CDK TypeScript project
+# Small Group CDK
 
-This is a blank project for CDK development with TypeScript.
+Package for maintaining AWS resources for the Small Group mobile app.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Useful Commands
 
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+- `npm run build` compile typescript to js
+- `npm run watch` watch for changes and compile
+- `npm run test` perform the jest unit tests
+- `cdk ls` list stacks in this app
+- `cdk deploy` deploy this stack to your default AWS account/region
+- `cdk diff` compare deployed stack with current state
+- `cdk synth` emits the synthesized CloudFormation template
