@@ -2,12 +2,9 @@
 
 Package for maintaining AWS resources for the Small Group mobile app.
 
-## Useful Commands
+## Deploying Changes
 
-- `npm run build` compile typescript to js
-- `npm run watch` watch for changes and compile
-- `npm run test` perform the jest unit tests
-- `cdk ls` list stacks in this app
-- `cdk deploy` deploy this stack to your default AWS account/region
-- `cdk diff` compare deployed stack with current state
-- `cdk synth` emits the synthesized CloudFormation template
+```
+1. Configure AWS CLI credentials: npm run config:deploy
+2. Deploy stacks: npm run build deploy
+```

@@ -26,10 +26,14 @@ export class DataStoreStack extends Stack {
 
     /* Grant unauthenticated users access to the profiles S3 bucket so we can determine
      * if they have an existing profile or not */
-    profilesBucket.grantRead(props.identityPool.unauthenticatedRole);
+    profilesBucket.grantReadWrite(props.identityPool.unauthenticatedRole);
+
+    // Temporarily grant unauthenticated users access to discussions bucket until
+    // profile/authentication features in place
+    discussionsBucket.grantReadWrite(props.identityPool.unauthenticatedRole);
 
     /* Grant authenticated users access to the profiles and discussions S3 bucket */
-    profilesBucket.grantRead(props.identityPool.authenticatedRole);
-    discussionsBucket.grantRead(props.identityPool.authenticatedRole);
+    profilesBucket.grantReadWrite(props.identityPool.authenticatedRole);
+    discussionsBucket.grantReadWrite(props.identityPool.authenticatedRole);
   }
 }

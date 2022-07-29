@@ -4,7 +4,7 @@
   "main": "lib/App.ts",
   "scripts": {
     "build": "echo Building CDK App... && tsc && echo Stacks Generated: && cdk ls",
-    "config-deploy": "aws configure",
+    "config:deploy": "aws configure",
     "deploy": "cdk deploy --all",
     "watch": "tsc -w",
     "test": "jest",
