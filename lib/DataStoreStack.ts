@@ -1,7 +1,7 @@
 import { Construct } from "constructs";
 import { Stack } from "monocdk";
 import { IdentityPool } from "monocdk/aws-cognito-identitypool";
-import { Bucket } from "monocdk/aws-s3";
+import { Bucket, CorsRule, HttpMethods } from "monocdk/aws-s3";
 import { StageConfiguration } from "./StageConfiguration";
 
 interface DataStoreStackProps {
@@ -23,6 +23,15 @@ export class DataStoreStack extends Stack {
       bucketName: `small-group-discussions-${stage.env}-${stage.region}`,
       publicReadAccess: false,
     });
+
+    // temporarily disable CORS
+    const corsRule: CorsRule = {
+      allowedMethods: [HttpMethods.GET, HttpMethods.PUT, HttpMethods.POST],
+      allowedOrigins: ["*"],
+      allowedHeaders: ["*"],
+    };
+    discussionsBucket.addCorsRule(corsRule);
+    profilesBucket.addCorsRule(corsRule);
 
     /* Grant unauthenticated users access to the profiles S3 bucket so we can determine
      * if they have an existing profile or not */
